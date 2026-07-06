@@ -17,7 +17,7 @@ params:
   footer:
     logos:
     - name: github
-      url: 'https://github.com/anomalyco/conventionalrepositories'
+      url: 'https://github.com/itzzjustmateo/conventionalrepositories'
 
 # Languages parameters
 languages:

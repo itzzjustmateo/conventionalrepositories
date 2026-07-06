@@ -1,0 +1,14 @@
+[build]
+  command = "cd themes/conventional-commits && bun install && bun run build && cd ../.. && hugo"
+  publish = "public"
+
+[build.environment]
+  HUGO_VERSION = "0.163.3"
+
+[context.production]
+  environment = { NODE_VERSION = "18" }
+
+[[redirects]]
+  from = "/"
+  to = "/en/v1.0.0/"
+  status = 301

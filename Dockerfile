@@ -1,13 +1,11 @@
-FROM node:19.0.0-alpine
-WORKDIR /src/
+FROM oven/bun:1.2 AS assets
+WORKDIR /src
 COPY ./themes/conventional-commits /src/
-RUN apk add make
-RUN npm install
-RUN npm run build
+RUN bun install && bun run build
 
 FROM jguyomard/hugo-builder:latest
 COPY ./ /src/
-COPY --from=0 /src/ /src/themes/conventional-commits/
+COPY --from=assets /src/ /src/themes/conventional-commits/
 RUN hugo
 
 FROM nginx:stable

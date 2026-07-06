@@ -1,0 +1,12 @@
+{
+  "buildCommand": "cd themes/conventional-commits && bun install && bun run build && cd ../.. && hugo",
+  "outputDirectory": "public",
+  "framework": "hugo",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/en/v1.0.0/",
+      "permanent": true
+    }
+  ]
+}

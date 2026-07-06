@@ -1,51 +1,47 @@
-# ConventionalCommits.org
+# Conventional Repositories
 
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
+A specification for standardizing repository names across teams and organizations, inspired by the principles of [Conventional Commits](https://www.conventionalcommits.org/).
 
-This repo is the home of the [Conventional Commits specification](https://www.conventionalcommits.org/).
+## Repository Name Format
 
-## Repo Layout
-
-We use [HUGO](https://gohugo.io/) as static site generator, so we use the [directory structure](https://gohugo.io/getting-started/directory-structure/) HUGO proposes.
-
-#### Our implementation
-
-* `./content`: contains all the versions of the specification.
-* `./content/next/`: contains the version of the specification (where all the changes SHOULD be made).
-* `./content/**/index.[lang].md`: contains the content of the specification, if a language is specified it's a translation.
-
-## Contributing
-
-We'd love your help refining the language of this specification,
-fixing typos, or adding more translations. Please don't hesitate
-to send a pull request.
-
-### Adding a translation
-
-1. Create a new file in `./content/version/index.[lang].md` using the hugo command `hugo new [version]/index.[lang].md`.
-1. Ensure all files have the appropriate fields required (see others as an example)..
-1. Add the language to the `config.yaml` file (see others as an example).
-
-### Running project locally
-
-There's a docker-compose.yml file ready that will help you to check if the website looks good!
-To run it make sure you have [docker-compose installed](https://docs.docker.com/compose/install/#install-compose) on your machine and just use the command `docker-compose up` to make it run locally.
-
-Once the website will be compiled, you can see the website visiting `http://localhost:1313`
-
-## Badges!
-
-Tell your users that you use the Conventional Commits specification:
-
-```markdown
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
+```
+[<type>-]<project-name>[-<component>]
 ```
 
-## Thank you
+- **type** (optional): `lib`, `app`, `cli`, `pkg`, `api`, `svc`, `infra`, `cfg`, `doc`
+- **project-name**: The common project identifier
+- **component** (optional): Sub-component or module
 
-To **[Lorenzo D'Ianni](https://github.com/lorenzodianni)** for the great effort creating the CSS and the HTML for the new UI.
+## Build
 
-To **[Netlify](https://www.netlify.com/)** to host our project, giving us a lot of [amazing built in functionality](https://www.netlify.com/features/) for free.
+```bash
+# Install dependencies and build CSS/JS
+bun install --cwd themes/conventional-commits
+cd themes/conventional-commits && bun run build
 
-To **[semver.org](https://github.com/mojombo/semver.org)**: we used [semver.org](https://github.com/mojombo/semver.org) as a blueprint for
-the structure of this specification and the first version of the website.
+# Generate site
+hugo
+```
+
+## Development
+
+```bash
+hugo serve --disableFastRender
+```
+
+Visit `http://localhost:1313/en/v1.0.0/`.
+
+## Contents
+
+- `config.yaml` — Site configuration (languages, params, nav)
+- `content/` — Versioned specification content
+- `themes/conventional-commits/` — Hugo theme (layouts, SCSS, JS)
+- `static/` — Static files (redirect index.html, _redirects)
+- `docs/FORMAT.md` — AI-friendly repository naming cheat sheet
+
+## Deploy
+
+| Platform | Config | Build command |
+|----------|--------|---------------|
+| Netlify  | `netlify.toml` | `bun install … && bun run build && hugo` |
+| Vercel   | `vercel.json`  | `bun install … && bun run build && hugo` |

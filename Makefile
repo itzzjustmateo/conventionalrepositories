@@ -12,10 +12,10 @@ serve-site-dev:
 
 compile-assets:
 	echo "Compiling assets"
-	cd themes/conventional-commits && npm install && npm run build
+	cd themes/conventional-commits && bun install && bun run build
 	echo "Assets compiled"
 
 compile-assets-dev:
 	echo "Compiling assets"
-	cd themes/conventional-commits && npm install && npm run start &
-
+	cd themes/conventional-commits && bun install && bun run start &
+	
