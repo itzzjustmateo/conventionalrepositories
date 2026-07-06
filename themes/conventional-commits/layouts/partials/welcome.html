@@ -1,7 +1,8 @@
 <section class="welcome">
   <div class="container">
-    <h1 class="welcome__title">{{.Param "Title"}}</h1>
-    <p class="welcome__description">{{.Param "Description"}}</p>
+    <h1 class="welcome__title">{{.Site.Title}}</h1>
+    <p class="welcome__tagline">A simple specification for consistent, predictable, and discoverable repository names.</p>
+    <p class="welcome__description">Standardize your repository names just as Conventional Commits standardizes commit messages. A lightweight convention for naming any repository across your organization.</p>
     {{ if .Param "Actions" }}
     <div class="welcome__actions">
       {{ range .Param "Actions" }}

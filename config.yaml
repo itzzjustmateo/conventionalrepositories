@@ -4,6 +4,8 @@ theme: conventional-commits
 defaultContentLanguageInSubdir: true
 defaultContentLanguage: "en"
 
+disableKinds: ['home', 'taxonomy', 'term']
+
 # Global parameters
 params:
   license:
@@ -15,31 +17,23 @@ params:
   footer:
     logos:
     - name: github
-      url: 'https://github.com/conventional-commits/conventionalcommits.org'
+      url: 'https://github.com/anomalyco/conventionalrepositories'
 
 # Languages parameters
 languages:
   en:
     weight: 1
     languageName: "English"
-    title: Conventional Commits
-    description: A specification for adding human and machine readable meaning to commit messages
-    actions:
-    - label: Quick Summary
-      url: '#summary'
-    - label: Full Specification
-      url: '#specification'
-    - label: Contribute
-      url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-      - v1.0.0
-      - v1.0.0-beta.4
-      - v1.0.0-beta.3
-      - v1.0.0-beta.2
-      - v1.0.0-beta.1
-      - v1.0.0-beta
+    title: Conventional Repositories
+    params:
+      description: A specification for standardizing repository names, inspired by the principles of Conventional Commits — bringing consistency, discoverability, and automation to how you name repositories across your organization.
+      actions:
+      - label: Get Started
+        url: '#features'
+        style: primary
+      - label: Read the Specification
+        url: '#specification'
+        style: secondary
 
   it:
     weight: 2
@@ -53,15 +47,6 @@ languages:
       url: '#specifica'
     - label: GitHub
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-      - v1.0.0
-      - v1.0.0-beta.4
-      - v1.0.0-beta.3
-      - v1.0.0-beta.2
-      - v1.0.0-beta.1
-      - v1.0.0-beta
 
   pl:
     weight: 3
@@ -73,13 +58,6 @@ languages:
       url: '#specyfikacja'
     - label: GitHub
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-      - v1.0.0
-      - v1.0.0-beta.2
-      - v1.0.0-beta.1
-      - v1.0.0-beta
 
   # zh-cn/zh-tw/zh-chs are legacy
   # zh-hans specification usage from IETF language tag
@@ -94,15 +72,6 @@ languages:
       url: '#约定式提交规范'
     - label: GitHub
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-      - v1.0.0
-      - v1.0.0-beta.4
-      - v1.0.0-beta.3
-      - v1.0.0-beta.2
-      - v1.0.0-beta.1
-      - v1.0.0-beta
   zh-hant:
     weight: 5
     languageName: "繁體中文"
@@ -115,11 +84,6 @@ languages:
       url: '#規範'
     - label: 貢獻
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-      - v1.0.0
-      - v1.0.0-beta.4
 
   es:
     weight: 6
@@ -131,11 +95,6 @@ languages:
       url: '#especificación'
     - label: GitHub
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0-beta.3
-      list:
-      - v1.0.0-beta.3
-      - v1.0.0-beta.2
 
   ru:
     weight: 7
@@ -149,13 +108,6 @@ languages:
         url: '#спецификация'
       - label: GitHub
         url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-        - v1.0.0
-        - v1.0.0-beta.4
-        - v1.0.0-beta.3
-        - v1.0.0-beta.2
 
   ja:
     weight: 8
@@ -169,11 +121,6 @@ languages:
         url: '#仕様'
       - label: GitHub
         url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-      - v1.0.0
-      - v1.0.0-beta.4
 
   fr:
     weight: 9
@@ -185,11 +132,6 @@ languages:
       url: '#spécification'
     - label: GitHub
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-      - v1.0.0
-      - v1.0.0-beta.2
   hi:
     weight: 10
     languageName: "हिन्दी"
@@ -202,10 +144,6 @@ languages:
       url: '#specification'
     - label: GitHub
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-      - v1.0.0
 
   ko:
     weight: 10
@@ -219,10 +157,6 @@ languages:
       url: '#규격'
     - label: Github
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0-beta.4
-      list:
-      - v1.0.0-beta.4
 
   pt-br:
     weight: 11
@@ -236,12 +170,6 @@ languages:
       url: '#especificação'
     - label: GitHub
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-        - v1.0.0
-        - v1.0.0-beta.4
-        - v1.0.0-beta.3
 
   id:
     weight: 12
@@ -255,12 +183,6 @@ languages:
       url: '#spesifikasi'
     - label: GitHub
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-        - v1.0.0
-        - v1.0.0-beta.4
-        - v1.0.0
 
   hy:
     weight: 13
@@ -274,11 +196,6 @@ languages:
       url: '#սպեցիֆիկացիա'
     - label: GitHub
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0-beta.4
-      list:
-      - v1.0.0-beta.4
-      - v1.0.0-beta.3
 
   de:
     weight: 14
@@ -292,10 +209,6 @@ languages:
       url: '#spezifikation'
     - label: Contribute
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-      - v1.0.0
 
   th:
     weight: 15
@@ -309,10 +222,6 @@ languages:
       url: '#ข้อกำหนด'
     - label: มีส่วนร่วม
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-      - v1.0.0
 
   uk:
     weight: 16
@@ -326,10 +235,6 @@ languages:
       url: '#specification'
     - label: Контрибуція
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-      - v1.0.0
 
   be:
     weight: 17
@@ -343,10 +248,6 @@ languages:
       url: '#поўная-спецыфікацыя'
     - label: Github
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-        - v1.0.0
         
   tr:
     weight: 18
@@ -360,10 +261,6 @@ languages:
       url: '#şartname'
     - label: Github
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-        - v1.0.0
 
   nl:
     weight: 19
@@ -377,10 +274,6 @@ languages:
       url: '#specificatie'
     - label: GitHub
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-      - v1.0.0
 
   ml:
     weight: 20
@@ -394,10 +287,6 @@ languages:
       url: '#specification'
     - label: Github
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-        - v1.0.0
 
   ro:
     weight: 21
@@ -411,10 +300,6 @@ languages:
       url: '#specificație'
     - label: Contribuie
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-      - v1.0.0
 
   bn:
     weight: 22
@@ -428,10 +313,6 @@ languages:
       url: '#নির্দিষ্টকরণ'
     - label: গিটহাব  
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-      - v1.0.0
 
   uz:
     weight: 23
@@ -445,10 +326,6 @@ languages:
       url: '#spesifikatsiya'
     - label: Github
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-      - v1.0.0
 
   ar:
     weight: 24
@@ -462,10 +339,6 @@ languages:
         url: '# المواصفات'
       - label: شارك في المشروع
         url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-        - v1.0.0
     rtl: true
 
   ta:
@@ -480,10 +353,6 @@ languages:
       url: '#specification'
     - label: பங்களிக்கவும்
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-        - v1.0.0
 
   pr:
     weight: 26
@@ -497,10 +366,6 @@ languages:
         url: '# توضیحات'
       - label: مشارکت
         url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-        - v1.0.0
     rtl: true
 
   gr:
@@ -515,10 +380,6 @@ languages:
         url: "#προδιαγραφή"
       - label: Συνεισφέρετε
         url: "https://github.com/conventional-commits/conventionalcommits.org"
-    versions:
-      current: v1.0.0
-      list:
-        - v1.0.0
 
   sr:
     weight: 28
@@ -532,10 +393,6 @@ languages:
       url: '#specifikacija'
     - label: Doprinos
       url: 'https://github.com/conventional-commits/conventionalcommits.org'
-    versions:
-      current: v1.0.0
-      list:
-      - v1.0.0
 
   si:
     weight: 29

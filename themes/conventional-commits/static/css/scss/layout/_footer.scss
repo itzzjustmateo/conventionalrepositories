@@ -8,12 +8,21 @@
     align-items: center;
   }
 
+  &__text {
+    text-align: center;
+    width: 100%;
+    margin-bottom: $gap-md;
+    font-size: .85em;
+    color: $color-text-muted;
+    line-height: 1.6;
+  }
+
   &__license {
     margin-right: auto;
     a {
       font-size: .7em;
       text-decoration: none;
-      color: inherit;
+      color: $color-text-muted;
       &:hover {
         text-decoration: underline;
       }
@@ -31,5 +40,31 @@
   .github {
     width: $footer-logo-size;
     height: $footer-logo-size;
+    fill: $color-text-primary;
+  }
+
+  &__links {
+    margin-right: auto;
+    font-size: .7em;
+
+    a {
+      text-decoration: none;
+      color: $color-text-muted;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__sep {
+    margin: 0 $gap-sm;
+    color: $color-border;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    width: 100%;
   }
 }

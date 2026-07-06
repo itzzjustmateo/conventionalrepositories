@@ -39,6 +39,18 @@
       margin-right: 0;
     }
   }
+
+  &__link a {
+    display: block;
+    padding: $dropdown-label-padding;
+    border-radius: $dropdown-border-radius;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      background-color: rgba($color-neutral-light, .1);
+    }
+  }
 }
 
 @include up-to-mobile {

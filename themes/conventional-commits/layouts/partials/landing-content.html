@@ -1,0 +1,197 @@
+<h1>Conventional Repositories 1.0.0</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>The Conventional Repositories specification is a lightweight convention on top of repository names.
+It provides an easy set of rules for creating an explicit and discoverable naming structure;
+which makes it easier to write automated tools on top of.
+This convention dovetails with organization-wide naming strategies,
+by describing the type, project, and optional component of each repository.</p>
+
+<p>The repository name should be structured as follows:</p>
+
+<hr />
+
+<pre><code>[&lt;type&gt;-]&lt;project&gt;[-&lt;component&gt;]
+</code></pre><hr />
+
+<p><br />
+The repository name may contain the following structural elements, to communicate intent to the
+consumers of your codebase:</p>
+
+<ol>
+  <li><strong>type:</strong> an OPTIONAL noun that classifies the repository. When present, it SHOULD be one of the recognized types (e.g., <code>app</code>, <code>lib</code>, <code>docs</code>).</li>
+  <li><strong>project:</strong> the name of the project or domain the repository belongs to, providing context and grouping. This is the only REQUIRED segment.</li>
+  <li><strong>component:</strong> an OPTIONAL segment that further describes the repository's role within a project, such as a specific microservice, module, or deployment target.</li>
+  <li><em>types</em> other than those listed below are allowed, for example <code>config</code>, <code>docs</code>, <code>infra</code>, or <code>tool</code> based on your organization's needs.</li>
+  <li>Additional segments beyond type-project-component MAY be appended when necessary, though a flat naming structure is RECOMMENDED.</li>
+</ol>
+
+<p>Types are not mandated by the Conventional Repositories specification. A repository name without a type
+prefix is simply a project name — this allows both typed and untyped names to coexist in the same organization.
+Well-known projects such as <code>nextjs</code>, <code>prisma</code>, or <code>shadcn-ui</code> are valid names without a type prefix.</p>
+
+<h2 id="format">Repository Name Format</h2>
+
+<p>The format ensures consistency by optionally prefixing a type, followed by a project name,
+and an optional component. Each segment is separated by a single hyphen.</p>
+
+<pre><code>[&lt;type&gt;-]&lt;project&gt;[-&lt;component&gt;]
+</code></pre>
+
+<p>Where:</p>
+
+<ul>
+  <li><code>&lt;type&gt;</code> — An OPTIONAL noun that classifies the repository's purpose. When present, examples include: <code>app</code>, <code>service</code>, <code>api</code>, <code>lib</code>, <code>cli</code>, <code>docs</code>, <code>infra</code>, <code>plugin</code>, <code>template</code>, <code>example</code>.</li>
+  <li><code>&lt;project&gt;</code> — The name of the project, system, or domain the repository belongs to. MUST be present.</li>
+  <li><code>&lt;component&gt;</code> — An optional qualifier that narrows the scope within a project (e.g., <code>frontend</code>, <code>backend</code>, <code>worker</code>).</li>
+</ul>
+
+<p>Hyphens within the project or component name are allowed, but consecutive hyphens (e.g., <code>app--name</code>)
+MUST NOT be used. When a type prefix is present, the first segment of the name is interpreted as the type;
+otherwise the entire name is the project name.</p>
+
+<h2 id="examples">Examples</h2>
+
+<h3>Application repository</h3>
+<pre><code>app-dashboard
+</code></pre>
+
+<h3>Service with component qualifier</h3>
+<pre><code>service-auth-core
+</code></pre>
+
+<h3>API gateway</h3>
+<pre><code>api-gateway
+</code></pre>
+
+<h3>Shared library</h3>
+<pre><code>lib-config
+</code></pre>
+
+<h3>CLI tool</h3>
+<pre><code>cli-deploy
+</code></pre>
+
+<h3>Infrastructure configuration</h3>
+<pre><code>infra-terraform
+</code></pre>
+
+<h3>Documentation</h3>
+<pre><code>docs-handbook
+</code></pre>
+
+<h3>Plugin for an existing system</h3>
+<pre><code>plugin-slack
+</code></pre>
+
+<h3>Project template</h3>
+<pre><code>template-node-express
+</code></pre>
+
+<h3>Example or sandbox project</h3>
+<pre><code>example-api-client
+</code></pre>
+
+<h3>Project without a type prefix</h3>
+<pre><code>shadcn-ui
+</code></pre>
+
+<h3>Project name spanning multiple hyphens</h3>
+<pre><code>shadcnui
+</code></pre>
+
+<h3>Standalone project name (no type, no component)</h3>
+<pre><code>prisma
+</code></pre>
+
+<h3>Type-like segment as part of the project name</h3>
+<pre><code>ui-shadcn
+</code></pre>
+
+<h2 id="specification">Specification</h2>
+
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="https://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>.</p>
+
+<ol>
+  <li>A repository name SHOULD consist of at least a project name. A type prefix MAY be prepended to provide additional context.</li>
+  <li>When a type prefix is present, it MUST be a lowercase noun (e.g., <code>app</code>, <code>lib</code>, <code>docs</code>), followed by a hyphen, followed by the project name.</li>
+  <li>When no type prefix is present, the entire repository name is the project name. Tools SHOULD NOT assume a type prefix is required.</li>
+  <li>The type prefix, when present, MUST be lowercase. Uppercase or mixed-case types are NOT RECOMMENDED.</li>
+  <li>The type <code>app</code> SHOULD be used when a repository contains an end-user application deployable as a standalone unit.</li>
+  <li>The type <code>service</code> SHOULD be used when a repository contains a backend service or microservice.</li>
+  <li>The type <code>api</code> SHOULD be used when a repository defines or implements an API surface.</li>
+  <li>The type <code>lib</code> SHOULD be used when a repository contains a shared library intended for reuse across projects.</li>
+  <li>The type <code>cli</code> SHOULD be used when a repository provides a command-line interface tool.</li>
+  <li>The type <code>docs</code> SHOULD be used when a repository is dedicated to documentation.</li>
+  <li>The type <code>infra</code> SHOULD be used when a repository contains infrastructure-as-code, deployment configurations, or environment definitions.</li>
+  <li>The type <code>plugin</code> SHOULD be used when a repository extends the functionality of another system.</li>
+  <li>The type <code>template</code> SHOULD be used when a repository serves as a starter or scaffold for new projects.</li>
+  <li>The type <code>example</code> SHOULD be used when a repository contains sample code or sandbox projects.</li>
+  <li>Types other than those listed above MAY be used. Organizations SHOULD define and publish their own type catalog.</li>
+  <li>When a type prefix is present, the project name MUST follow the type, separated by a single hyphen. The project name SHOULD be concise and descriptive.</li>
+  <li>An OPTIONAL component segment MAY appear after the project name, separated by a hyphen. The component further qualifies the repository's role (e.g., <code>app-billing-frontend</code>).</li>
+  <li>Hyphens within the project or component names are permitted, but the double hyphen <code>--</code> MUST NOT appear anywhere in the name.</li>
+  <li>The repository name MUST NOT contain characters other than lowercase letters (<code>a-z</code>), digits (<code>0-9</code>), and hyphens (<code>-</code>).</li>
+  <li>The project and component segments MUST each contain at least one character.</li>
+  <li>Repository names SHOULD NOT exceed 100 characters in total length.</li>
+  <li>Tools that consume repository names SHOULD treat the type prefix as case-insensitive for matching purposes; however, the canonical form MUST be lowercase.</li>
+  <li>When migrating existing repositories to this convention, organizations SHOULD add aliases or redirects from the old names to the new names to preserve links and references.</li>
+  <li>Parsing ambiguity: when a repository name could be interpreted as having a type prefix (e.g., <code>ui-shadcn</code>) but the intent is a project name, the first segment MAY be treated as part of the project name. Organizations SHOULD document whether they require type prefixes to avoid ambiguity.</li>
+</ol>
+
+<h2 id="why">Why Use Conventional Repositories</h2>
+
+<ul>
+  <li>Automatically discovering repositories by type (e.g., finding all <code>lib-*</code> or <code>service-*</code> repositories).</li>
+  <li>Enforcing organization-wide naming standards without additional tooling configuration.</li>
+  <li>Communicating the purpose of a repository at a glance from its name alone.</li>
+  <li>Triggering automated provisioning, CI/CD pipelines, and deployment rules based on naming patterns.</li>
+  <li>Making it easier for people to find the repositories they need across large organizations and multi-project ecosystems.</li>
+  <li>Reducing onboarding friction by providing a predictable repository structure.</li>
+  <li>Enabling search, filtering, and grouping via simple glob patterns (e.g., <code>docs-*</code>, <code>*-billing-*</code>).</li>
+</ul>
+
+<h2 id="faq">FAQ</h2>
+
+<h3>How should I name repositories during the initial development phase?</h3>
+<p>We recommend that you choose a project name early and keep it. While renaming is possible, it creates churn for contributors and tooling. Adding a type prefix later is straightforward and does not break existing tooling that supports optional types.</p>
+
+<h3>When should I use a type prefix?</h3>
+<p>Use a type prefix when the repository's role is well-defined and you want to enable type-based discovery and automation. For libraries, frameworks, or standalone tools with a distinct brand (e.g., <code>nextjs</code>, <code>prisma</code>), using only the project name without a type is RECOMMENDED.</p>
+
+<h3>What if my project name contains a hyphen?</h3>
+<p>Hyphens within the project name are permitted. For example, <code>app-user-auth</code> has type <code>app</code> and project <code>user-auth</code>. Without a type prefix, <code>user-auth</code> or <code>shadcn-ui</code> are valid project-only names. The type prefix, when present, provides the unambiguous boundary.</p>
+
+<h3>How do I handle monorepos?</h3>
+<p>For monorepos that contain multiple projects, use a single repository with a descriptive name such as <code>app-monorepo</code>, <code>infra-monorepo</code>, or simply <code>monorepo</code> without a type prefix. Alternatively, use the component segment to denote the subsystem: <code>app-billing-monolith</code>.</p>
+
+<h3>Should I rename existing repositories to follow this convention?</h3>
+<p>Renaming is OPTIONAL but RECOMMENDED for active repositories. Since the type prefix is optional, existing project-only names (e.g., <code>my-tool</code>) are already valid. You can add a type prefix later without breaking compatibility. Configure a redirect or alias from the old name to the new name to avoid breaking existing references.</p>
+
+<h3>How does this relate to repository topics or tags?</h3>
+<p>Repository topics (e.g., GitHub topics) provide metadata orthogonal to the naming convention. Topics can supplement the name with additional classifiers such as language, framework, or team ownership. The naming convention focuses on the structural role of the repository.</p>
+
+<h3>What types should I use for internal tooling?</h3>
+<p>Use <code>cli</code> for command-line tools, <code>app</code> for internal dashboards, <code>lib</code> for shared utilities, and <code>infra</code> for infrastructure configuration. For anything that does not fit, define a custom type and document it in your organization's type catalog, or omit the type prefix entirely.</p>
+
+<h3>How do I name documentation-only repositories?</h3>
+<p>Use the <code>docs</code> type prefix, or simply name the repository after the documentation project (e.g., <code>handbook</code>, <code>api-reference</code>). Examples: <code>docs-handbook</code>, <code>docs-api-reference</code>.</p>
+
+<h3>What if two repositories share the same project name?</h3>
+<p>If two repositories have the same project name, use a type prefix or a component segment to disambiguate. For example, <code>app-billing</code> and <code>lib-billing</code>. If they serve identical purposes, consider consolidating them into a single repository.</p>
+
+<h3>Does this convention support versioned repositories?</h3>
+<p>Version numbers SHOULD NOT appear in the repository name. Repository names represent a living project; use tags, releases, or branches to track versions. If you must include a version (e.g., <code>api-payments-v2</code>), place it at the end as a component segment.</p>
+
+<h3>How do I name fork or mirror repositories?</h3>
+<p>Forks and mirrors SHOULD retain the original repository name to preserve familiarity. If modification is necessary, append a suffix such as <code>-fork</code> or <code>-mirror</code> as the component segment: <code>lib-config-fork</code>.</p>
+
+<h3>Can I use this convention with private and public repositories together?</h3>
+<p>Yes. The convention applies equally to private and public repositories. It is RECOMMENDED to apply the same naming rules across both scopes for consistency.</p>
+
+<h3>How do I handle archived repositories?</h3>
+<p>Archived repositories MAY retain their existing names. If you wish to indicate archival status, append <code>-archive</code> or <code>-legacy</code> as the component segment: <code>app-dashboard-archive</code>. This is OPTIONAL and implementation-defined.</p>
+
+<h3>How do tools know whether a prefix is a type or a project name?</h3>
+<p>Tools MAY use a known type catalog to identify recognized type prefixes. When a type prefix is not recognized, the tool SHOULD treat it as part of the project name. Organizations using type prefixes SHOULD publish their type catalog so tooling can reliably distinguish types from project names in hyphenated repositories.</p>

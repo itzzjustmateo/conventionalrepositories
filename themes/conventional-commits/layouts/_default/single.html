@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html class="{{ if .Site.Language.Params.rtl }}rtl{{ end }}">
 {{- partial "head.html" . -}}
-<body class="conventional-commits--loading">
+<body>
 {{- partial "header.html" . -}}
 {{- partial "welcome.html" . -}}
 <main>
   <article class="container markdown-body">
-    {{.Content}}
+    {{- partial "landing-content.html" . -}}
   </article>
 </main>
 {{- partial "footer.html" . -}}
